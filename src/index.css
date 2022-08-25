@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.register-page .main-form-content {
+  min-height: calc(100vh - 92px);
+}
+
+@media (max-width: 768px) {
+  .media-section-right {
+    display: none;
+  }
+}
+
+
+.bg-primary-1 { 
+  background: #f05d61 !important;
+}
+
+.bg-primary-2 { 
+  background: #f97778 !important;
+}
+
+.text-primary-1 {
+  color: #f05d61 !important;
+}
