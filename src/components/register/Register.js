@@ -151,10 +151,10 @@ export default function Register() {
               </Row>
               <div className="fs-6 text-center text-white mb-3">or sign up with</div>
               <Row className="justify-content-center">
-                <Button className="bg-white h-50 border border-0 mx-3 col-2 d-flex align-items-center justify-content-center px-4 py-3">
+                <Button className="social-btn bg-white h-50 border border-0 align-items-center px-4 py-3">
                   <Image src="/assets/images/go.svg" width="50"/>
                 </Button>
-                <Button className="bg-white h-50 border border-0 mx-3 col-2 d-flex align-items-center justify-content-center px-4 py-3">
+                <Button className="social-btn bg-white h-50 border border-0 align-items-center px-4 py-3">
                   <Image src="/assets/images/fc.svg" width="50"/>
                 </Button>
               </Row>
