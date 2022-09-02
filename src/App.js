@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 import Login from './components/login/Login.js';
 import Register from './components/register/Register.js';
@@ -10,8 +10,12 @@ function App() {
       <BrowserRouter>
       <Top/>
         <Routes>
+          <Route
+              path="/"
+              element={<Navigate to="/register" replace />}
+          />
           <Route path="/login" element={<Login/>}/>
-          <Route path="/" element={<Register/>}/>
+          <Route path="/register" element={<Register/>}/>
         </Routes>
       </BrowserRouter>
     </div>

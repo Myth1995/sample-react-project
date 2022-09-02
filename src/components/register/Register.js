@@ -9,11 +9,12 @@ import {
   Spinner,
   Image
 } from "react-bootstrap";
-// import { ToastContainer, toast } from "react-toastify";
-// import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 import { Link } from "react-router-dom";
+import { SERVER_URL } from "../../config/config";
 
-export default function Login() {
+export default function Register() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -27,8 +28,34 @@ export default function Login() {
 
     if ( firstName === "" || lastName === "" || userEmail === "" || userPassword === "" ) {
       setIsLoding(false);
+      toast.error("Please fill the all informations.");
       return;
     }
+
+    const data = {
+      firstName: firstName,
+      lastName: lastName,
+      email: userEmail,
+      password: userPassword,
+    };
+
+    axios
+      .post(SERVER_URL + "/auth/register", data)
+      .then((res) => {
+        if (res.data.status) {
+          setTimeout(() => {
+            setIsLoding(false);
+            toast.success(res.data.message);
+          }, 2000);
+        } else {
+          setIsLoding(false);
+          toast.error(res.data.message);
+        }
+      })
+      .catch((err) => {
+        toast.error("Failed to Sign Up!")
+        console.log(err);
+      });
   };
 
   return(
@@ -37,7 +64,7 @@ export default function Login() {
         <Col
           lg={6}
           md={6}
-          sm={6}
+          // sm={6}
           style={{
             backgroundImage: `url("/assets/images/bg.svg")`,
             backgroundRepeat: "no-repeat",
@@ -47,34 +74,34 @@ export default function Login() {
         >
           <Container className="col-md-8 col-lg-8 col-sm-10">
             <Form>
-            <div className="fs-1 fw-bold text-center text-white">
-              Create an account
-            </div>
-            <div className="fs-5-2 text-center text-white mt-2">
-              Already an account?{" "}
-              <Link to="/login" className="nav-link d-inline-block fw-bold">
-                Log in
-              </Link>
-            </div>
+              <div className="fs-1 fw-bold text-center text-white" onClick={()=>register()}>
+                Create an account
+              </div>
+              <div className="fs-5-2 text-center text-white mt-1 account-login">
+                Already an account?{" "}
+                <Link to="/login" className="nav-link d-inline-block fw-bold text-white">
+                  Log in
+                </Link>
+              </div>
               <Row>
-                <Form.Group as={Col} md="6" controlId="validationCustom01">
+                <Form.Group as={Col} md="6" sm="12" controlId="validationCustom01">
                   <Form.Control
                     required
                     type="text"
                     placeholder="First name"
-                    className="py-4 ps-4 mt-3"
+                    className="py-4 ps-4 mt-3 input-box"
                     value={firstName}
                     onChange={(e) => {
                       setFirstName(e.target.value);
                     }}
                   />
                 </Form.Group>
-                <Form.Group as={Col} md="6" controlId="validationCustom01">
+                <Form.Group as={Col} md="6" sm="12" controlId="validationCustom01">
                   <Form.Control
                     required
                     type="text"
                     placeholder="Last name"
-                    className="py-4 ps-4 mt-3"
+                    className="py-4 ps-4 mt-3 input-box"
                     value={lastName}
                     onChange={(e) => {
                       setLastName(e.target.value);
@@ -89,7 +116,7 @@ export default function Login() {
                     type="email"
                     placeholder="Email"
                     value={userEmail}
-                    className="py-4 ps-4"
+                    className="py-4 ps-4 input-box"
                     onChange={(e) => {
                       setUserEmail(e.target.value);
                     }}
@@ -102,7 +129,7 @@ export default function Login() {
                     required
                     type="password"
                     placeholder="Password"
-                    className="py-4 ps-4"
+                    className="py-4 ps-4 input-box"
                     value={userPassword}
                     onChange={(e) => setUserPassword(e.target.value)}
                   />
@@ -115,8 +142,8 @@ export default function Login() {
                       <Spinner animation="grow" />
                     </Button>
                   ) : (
-                    <Button className="w-100 bg-white p-3 d-flex align-items-center justify-content-center text-primary-1 border border-0 fw-bold border-none" onClick={()=>{register()}}>
-                      <div>Create Your Account</div>
+                    <Button className="create-account w-100 d-flex bg-white align-items-center justify-content-center text-primary-1 border border-0 fw-bold border-none" onClick={()=>{register()}}>
+                      <div className='my-2'>Create Your Account</div>
                       <Image className="ms-3" src="/assets/images/mail.svg"/>
                     </Button>
                   )}
@@ -124,10 +151,10 @@ export default function Login() {
               </Row>
               <div className="fs-6 text-center text-white mb-3">or sign up with</div>
               <Row className="justify-content-center">
-                <Button className="bg-white h-50 border border-0 mx-3 col-2 d-flex align-items-center justify-content-center p-2">
+                <Button className="bg-white h-50 border border-0 mx-3 col-2 d-flex align-items-center justify-content-center px-4 py-3">
                   <Image src="/assets/images/go.svg" width="50"/>
                 </Button>
-                <Button className="bg-white h-50 border border-0 mx-3 col-2 d-flex align-items-center justify-content-center p-2">
+                <Button className="bg-white h-50 border border-0 mx-3 col-2 d-flex align-items-center justify-content-center px-4 py-3">
                   <Image src="/assets/images/fc.svg" width="50"/>
                 </Button>
               </Row>
@@ -141,13 +168,13 @@ export default function Login() {
           style={{
             backgroundImage: `url("/assets/images/bg1.jpg")`,
             backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            backgroundSize: "100% 100%",
           }}
         >
           <Image src="/assets/images/logo.svg"/>
         </Col>
       </Row>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </div>
   )
 }

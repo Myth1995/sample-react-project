@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/bsicons/bootstrap-icons.css';
+import "@fontsource/roboto";
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

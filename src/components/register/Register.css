@@ -22,14 +22,6 @@ input {
     padding-left: .5rem;
 }
 
-button {
-    width: 90%;
-    height: 30px;
-    background-color: aquamarine;
-    border: none;
-    border-radius: 10px;
-}
-
 .bg-white-color {
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -52,8 +44,8 @@ form .form-group label {
 
 form .form-group input[type=text], input[type=password] {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 12px 20px 0 20px;
+  /* margin: 8px 0; */
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -73,4 +65,32 @@ form .form-group button{
 
 form .form-group button:hover {
     opacity: 0.8;
+}
+
+.account-login {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.input-box {
+    font-weight: 400 !important;
+    font-size: 10px !important;
+    line-height: 12px !important;
+}
+
+.register-page .form-control:focus {
+    border-color: #ce9697;
+    box-shadow: 0 0 0 .25rem rgba(238, 122, 87, 0.811);
+}
+
+.create-account {
+    box-shadow: 0 0 0 .25rem rgba(232, 161, 140, 0.914) !important;
+}
+
+@media screen and (max-height: 768px) {
+    .register-page form {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
 }
