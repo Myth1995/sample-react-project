@@ -25,7 +25,7 @@ export default function Top() {
                 <Nav.Link href="/" className="me-4 bg-color-1 border rounded-2 text-white fs-5-2 fw-semibold px-4 font-normal full-width">
                   Become a Local Expert
                 </Nav.Link>
-                <Nav.Link href="" className="me-4 text-color-1 font-normal fw-bold full-width">
+                <Nav.Link href="/login" className="me-4 text-color-1 font-normal fw-bold full-width">
                   Login
                 </Nav.Link>
                 <Nav.Link href="/" className="me-4 bg-color-1 border rounded-2 text-white fs-5-2 fw-semibold px-4 font-normal full-width">

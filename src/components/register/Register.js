@@ -84,7 +84,7 @@ export default function Register() {
                 </Link>
               </div>
               <Row>
-                <Form.Group as={Col} md="6" sm="12" controlId="validationCustom01">
+                <Form.Group as={Col} md="6" sm="12" className="pe-1" controlId="validationCustom01">
                   <Form.Control
                     required
                     type="text"
@@ -96,7 +96,7 @@ export default function Register() {
                     }}
                   />
                 </Form.Group>
-                <Form.Group as={Col} md="6" sm="12" controlId="validationCustom01">
+                <Form.Group as={Col} md="6" sm="12" className="ps-1" controlId="validationCustom01">
                   <Form.Control
                     required
                     type="text"
