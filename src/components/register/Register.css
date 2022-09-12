@@ -26,7 +26,13 @@ input {
     background-color: rgba(255, 255, 255, 0.8);
 }
 
+.register-page .input-form1 {
+    padding-right: 4px;
+}
 
+.register-page .input-form2 {
+    padding-left: 4px;
+}
 
 .register-page .account-login {
     font-weight: 400;
@@ -53,5 +59,15 @@ input {
     .register-page form {
         margin-top: 3rem;
         margin-bottom: 3rem;
+    }
+
+    .register-page form .input-form1 {
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
+    }
+    
+    .register-page form .input-form2 {
+        padding-right: calc(var(--bs-gutter-x) * .5);
+        padding-left: calc(var(--bs-gutter-x) * .5);
     }
 }
